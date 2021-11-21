@@ -4,8 +4,5 @@
   box-sizing: border-box;
 }
 #canvas {
-  border: 1px solid #ff0000;
-  /* height: 100vh; 和屏膜一样高 */
-  /* width: 100vw;  和屏膜一样宽 */
   display: block; /* canvas 默认是内联 inline 元素。设置为 block 显示模式的目的是去掉滚动条。 */
 }

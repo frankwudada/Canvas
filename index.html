@@ -10,14 +10,38 @@
 </head>
 
 <body>
-    <canvas id="canvas"></canvas>
+    <canvas id="canvas" width="100" height="100"></canvas>
     <!--html设置的宽高会被css上的设置宽高样式覆盖；不能在css上设置宽高，画板的宽高以html的设置为准，在css上设置会导致变形，即拉伸收缩，而导致画质改变。-->
     <script>
-        // 画线
-        var canvas = document.getElementById("canvas");
-        var ctx = canvas.getContext("2d");
+        let canvas = document.getElementById("canvas");
+        canvas.width = document.documentElement.clientWidth;
+        canvas.height = document.documentElement.clientHeight;
+        //设置方法：Google直接搜索“js获取屏膜高度”
+        let ctx = canvas.getContext("2d");
         ctx.fillStyle = "blue";
-        ctx.fillRect(20, 20, 60, 80);
+        let painting = false;
+        canvas.onmousedown = () => {
+            painting = true
+        }
+        canvas.onmouseup = () => {
+            painting = false
+        }
+        canvas.onmousemove = (e) => {
+            // click意思是“点击”；mousemove意思是“鼠标移动”;mousedown意思是鼠标放下；mouseup意思是鼠标拿起。
+            if (painting === true) {
+                ctx.beginPath();
+                ctx.arc(e.clientX - 5, e.clientY - 5, 10, 0, 2 * Math.PI);
+                ctx.stroke();
+                ctx.fill();
+            } else {
+
+            }
+
+
+        }
+
+
+
     </script>
 </body>
 
