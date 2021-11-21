@@ -5,29 +5,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>画板</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div id="canvas"></div>
+    <canvas id="canvas"></canvas>
+    <!--html设置的宽高会被css上的设置宽高样式覆盖；不能在css上设置宽高，画板的宽高以html的设置为准，在css上设置会导致变形，即拉伸收缩，而导致画质改变。-->
     <script>
-        canvas.onclick = (e) => {
-            console.log(e.clientX)
-            console.log(e.clientY)
-            // console.log 调试大法(
-            let div = document.createElement('div')
-            div.style.position = 'absolute'
-            div.style.left = e.clientX + 'px'
-            div.style.top = e.clientY + 'px'
-            div.style.width = '6px'
-            div.style.height = "6px"
-            div.style.marginTop = '-3px'
-            div.style.marginLeft = '-3px'
-            div.style.borderRadius = '50%'
-            div.style.backgroundColor = 'black'
-            canvas.appendChild(div)
-        }
+        // 画线
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        ctx.fillStyle = "blue";
+        ctx.fillRect(20, 20, 60, 80);
     </script>
 </body>
 
