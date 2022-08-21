@@ -16,19 +16,18 @@
         canvas.width = document.documentElement.clientWidth;
         canvas.height = document.documentElement.clientHeight;
         let ctx = canvas.getContext("2d");  // 创建 canvas 标签的二维渲染上下文
-        ctx.fillStyle = "red";
+        ctx.fillStyle = "black";
         let painting = false;
-        var isTouchDevice = ('ontouchstart' in document.documentElement);
         function drawLine(x1, y1, x2, y2) {
-            ctx.beginPath();
-            ctx.moveTo(x1, y1);
-            ctx.lineTo(x2, y2);
-            ctx.stroke();
-            // stroke的意思是画线
+            ctx.beginPath();  // 开始一个新路径
+            ctx.moveTo(x1, y1);  // 路径起始点
+            ctx.lineTo(x2, y2);  // 路径终点，将两个点用直线连起来。
+            ctx.stroke();  // 开始绘画
         }
         let last
         ctx.lineWidth = 20;
         ctx.lineCap = "round"  // 线段未端以圆形结束
+        let isTouchDevice = ('ontouchstart' in document.documentElement);  // 移动端
         if (isTouchDevice) {
             canvas.ontouchstart = (e) => {
                 let x = e.touches[0].clientX
@@ -43,7 +42,7 @@
             }
         } else {
             canvas.onmousedown = (e) => {
-                painting = true
+                painting = true   // 点击时开始绘画
                 last = [e.clientX, e.clientY]
             }
             canvas.onmousemove = (e) => {
@@ -52,7 +51,7 @@
                     last = [e.clientX, e.clientY]
                 }
                 canvas.onmouseup = () => {
-                    painting = false
+                    painting = false  // 松开鼠标时停止绘画
                 }
             }
         }
