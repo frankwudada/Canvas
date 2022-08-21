@@ -4,5 +4,5 @@
   box-sizing: border-box;
 }
 #canvas {
-  display: block; /* canvas 默认是内联 inline 元素。设置为 block 显示模式的目的是去掉滚动条。 */
+  display: block; /* canvas 默认是内联 inline 元素，内联元素无法设置宽高。设置为 block 显示模式的目的是去掉滚动条。 */
 }
