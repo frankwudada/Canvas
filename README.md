@@ -2,6 +2,12 @@
 
 利用 canvas 标签的特性，使用原生的 JavaScript 制作一个网页画板项目，鼠标为笔刷。
 
+## 源码使用
+
+`git clone SSR_URL`
+
+`parcel index.html`
+
 ## 项目开发主要过程
 
 - 创建一个 canvas 标签，并将标签的宽高设置为当前屏幕的宽高。
